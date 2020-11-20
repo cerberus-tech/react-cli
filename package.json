@@ -1,0 +1,29 @@
+{
+  "name": "react-cli",
+  "version": "0.1.0",
+  "description": "CLI tool for React component creation",
+  "main": "index.js",
+  "dependencies": {
+    "@types/dedent": "^0.7.0",
+    "cross-env": "^7.0.2",
+    "dedent": "^0.7.0",
+    "log4js": "^6.3.0",
+    "mkdirp": "^1.0.4",
+    "yargs": "^16.1.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "@types/log4js": "^2.3.5",
+    "@types/mkdirp": "^1.0.1",
+    "@types/node": "^14.14.9",
+    "@types/yargs": "^15.0.10",
+    "jest": "^26.6.3"
+  },
+  "scripts": {
+    "test": "npm run test",
+    "build": "tsc",
+    "start:prod": "npm run build && node ./dist/index.js"
+  },
+  "author": "Akos Szabacsi",
+  "license": "MIT"
+}
