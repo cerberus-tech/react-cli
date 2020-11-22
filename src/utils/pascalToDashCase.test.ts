@@ -13,6 +13,10 @@ describe('camelCase to dash-case tests', () => {
     const input = 'MyComponent';
     expect(isPascalCase(input)).toBeTruthy();
   });
+  it('Should throw error if input is not in camelCase format', () => {
+    const input = 'myComponent';
+    expect(() => pascalToDashCase(input)).toThrowError();
+  });
   it('Should return dash-case of camelCase input', () => {
     const input = 'MyComponent';
     const expected = 'my-component';
