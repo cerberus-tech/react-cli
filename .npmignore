@@ -2,3 +2,5 @@ src
 .gitignore
 tsconfig.json
 yarn-error.log
+.vscode
+coverage

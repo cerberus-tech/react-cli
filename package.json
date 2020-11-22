@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "description": "CLI tool for React component creation",
   "main": "index.js",
+  "preferGlobal": true,
+  "bin": {
+    "react-cli": "dist/index.js"
+  },
   "dependencies": {
     "coveralls": "^3.1.0",
     "dedent": "^0.7.0",
     "log4js": "^6.3.0",
-    "mock-fs": "^4.13.0",
     "yargs": "^16.1.1"
   },
   "devDependencies": {
