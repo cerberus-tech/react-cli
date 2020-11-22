@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - 12
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.21.1
+  - export PATH="$HOME/.yarn/bin:$PATH"
+cache: yarn
+scripts:
+  - npm run lint
+  - npm run test:coveralls
