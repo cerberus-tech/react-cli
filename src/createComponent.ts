@@ -1,7 +1,7 @@
 import dedent from 'dedent';
 import { createComponentFile } from './createComponentFile';
 
-export const createComponent = (componentName: string, relativePath: string) => {
+export const createComponent = (componentName: string, relativePath: string): void => {
   const componentAsString = dedent`
   import React from 'react';
   import './${componentName}.scss';
@@ -17,4 +17,4 @@ export const createComponent = (componentName: string, relativePath: string) => 
   }
   `;
   createComponentFile(relativePath, componentName, componentAsString);
-}
+};
