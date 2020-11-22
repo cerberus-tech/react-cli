@@ -1,10 +1,11 @@
 import * as fs from 'fs';
 import { FileSystemError } from './exceptions/FileSystemError';
 import { logger } from './logger';
+import { directoryAbsolutePath } from './utils/getPath';
 
 export const createComponentFile = (relativePath: string, componentName: string, componentAsString: string): void => {
   try {
-    const dirPath = `${__dirname}/${relativePath}`; // TODO: make root path configurable
+    const dirPath = directoryAbsolutePath(relativePath);
     const extension = 'tsx'; // TODO: extension make extension configurable
     const fileName = `${componentName}.${extension}`;
     const filePath = `${dirPath}/${fileName}`;

@@ -12,7 +12,7 @@ export const createComponent = (componentName: string, relativePath: string): vo
     return (
       <div>
         <span>${componentName}</span>
-      <div>
+      </div>
     )
   }
   `;
