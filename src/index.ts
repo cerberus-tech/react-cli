@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import * as yargs from 'yargs';
 import { createComponent } from './createComponent';
 import { createComponentStyleSheet } from './createComponentStylesheet';
