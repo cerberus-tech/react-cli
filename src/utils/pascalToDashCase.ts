@@ -8,6 +8,6 @@ export const pascalToDashCase = (s: string): string => {
   if (isPascalCase(s)) {
     return s.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase()).slice(1);
   } else {
-    throw new FormatError('Input string should be in camelCase format!');
+    throw new FormatError(`Input string: ${s} should be PascalCase format!`); // TODO: validate this with yargs
   }
 };

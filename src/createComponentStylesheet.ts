@@ -10,7 +10,7 @@ export const createComponentStyleSheet = (relPath: string, componentName: string
   `;
   try {
     const extension = 'scss'; // TODO: make this configurable
-    const fileName = `.${componentName}.${extension}`;
+    const fileName = `${componentName}.${extension}`;
     fs.writeFileSync(join(__dirname, relPath, fileName), styleSheetAsString);
   } catch (e) {
     logger.error(e.message);
