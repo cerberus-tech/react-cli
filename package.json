@@ -33,7 +33,7 @@
   "scripts": {
     "test": "jest",
     "test:cov": "jest --coverage --passWithNoTests",
-    "test:coveralls": "jest --coverage --passWithNoTests --coverageReporters=text-cov | coveralls",
+    "test:coveralls": "jest --coverage --passWithNoTests --coverageReporters=text-lcov | coveralls",
     "build": "tsc",
     "start:prod:win": "npm run build && node ./dist/index.js",
     "lint": "eslint \"src/**/*.{js,ts}\"",
