@@ -22,8 +22,9 @@ const [command, subject, subjectInstanceName, relativePath] = argv._;
 
 if (command.toLocaleLowerCase() === 'g') {
   if (subject.toLocaleLowerCase() === 'component') {
-    createComponent(subjectInstanceName, relativePath);
-    createComponentTestFile(relativePath, subjectInstanceName, 'tsx'); // TODO: consistent arg order, configurable extension
-    createComponentStyleSheet(subjectInstanceName, relativePath);
+    const basePath = `src/${relativePath}`; // TODO: make this configurable
+    createComponent(subjectInstanceName, basePath);
+    createComponentTestFile(basePath, subjectInstanceName, 'test.tsx'); // TODO: consistent arg order, configurable extension
+    createComponentStyleSheet(subjectInstanceName, basePath);
   }
 }

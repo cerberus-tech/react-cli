@@ -1,7 +1,6 @@
 import dedent from 'dedent';
 import * as fs from 'fs';
 import { join } from 'path';
-import { logger } from './logger';
 import { directoryAbsolutePath } from './utils/getPath';
 import { pascalToDashCase } from './utils/pascalToDashCase';
 
@@ -13,8 +12,8 @@ export const createComponentStyleSheet = (componentName: string, relPath: string
   const styleSheetAsString = dedent`.${pascalToDashCase(componentName)} {}`;
   try {
     fs.writeFileSync(filePath, styleSheetAsString);
-    logger.info(`Component created at: ${filePath}`);
+    console.log(`Component stylesheet created at: ${filePath}`);
   } catch (e) {
-    logger.error(e.message);
+    console.error(e.message);
   }
 };
