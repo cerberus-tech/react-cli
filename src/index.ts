@@ -2,6 +2,7 @@
 import * as yargs from 'yargs';
 import { createComponent } from './createComponent';
 import { createComponentStyleSheet } from './createComponentStylesheet';
+import { createComponentTestFile } from './createComponentTestFile';
 
 const { argv } = yargs
   .scriptName('react-cli')
@@ -22,6 +23,7 @@ const [command, subject, subjectInstanceName, relativePath] = argv._;
 if (command.toLocaleLowerCase() === 'g') {
   if (subject.toLocaleLowerCase() === 'component') {
     createComponent(subjectInstanceName, relativePath);
-    createComponentStyleSheet(relativePath, subjectInstanceName); // TODO make parameter order consistent with createComponent
+    createComponentTestFile(relativePath, subjectInstanceName, 'tsx'); // TODO: consistent arg order, configurable extension
+    createComponentStyleSheet(subjectInstanceName, relativePath);
   }
 }

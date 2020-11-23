@@ -5,15 +5,15 @@ import { logger } from './logger';
 import { directoryAbsolutePath } from './utils/getPath';
 import { pascalToDashCase } from './utils/pascalToDashCase';
 
-export const createComponentStyleSheet = (relPath: string, componentName: string): void => {
+export const createComponentStyleSheet = (componentName: string, relPath: string): void => {
+  const extension = 'scss'; // TODO: make this configurable
+  const fileName = `${componentName}.${extension}`;
   const dirPath = directoryAbsolutePath(relPath);
-  const styleSheetAsString = dedent`
-    .${pascalToDashCase(componentName)} {}
-  `;
+  const filePath = join(dirPath, fileName);
+  const styleSheetAsString = dedent`.${pascalToDashCase(componentName)} {}`;
   try {
-    const extension = 'scss'; // TODO: make this configurable
-    const fileName = `${componentName}.${extension}`;
-    fs.writeFileSync(join(dirPath, fileName), styleSheetAsString);
+    fs.writeFileSync(filePath, styleSheetAsString);
+    logger.info(`Component created at: ${filePath}`);
   } catch (e) {
     logger.error(e.message);
   }

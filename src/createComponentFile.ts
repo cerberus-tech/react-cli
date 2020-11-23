@@ -1,25 +1,12 @@
-import * as fs from 'fs';
-import { FileSystemError } from './exceptions/FileSystemError';
+import { createFile } from './createFile';
 import { logger } from './logger';
-import { directoryAbsolutePath } from './utils/getPath';
 
 export const createComponentFile = (relativePath: string, componentName: string, componentAsString: string): void => {
   try {
-    const dirPath = directoryAbsolutePath(relativePath);
     const extension = 'tsx'; // TODO: extension make extension configurable
-    const fileName = `${componentName}.${extension}`;
-    const filePath = `${dirPath}/${fileName}`;
-
-    if (fs.existsSync(filePath)) {
-      throw new FileSystemError('Component already exists!');
-    }
-
-    if (!fs.existsSync(dirPath)) {
-      fs.mkdirSync(dirPath, { recursive: true });
-    }
-
-    fs.writeFileSync(filePath, componentAsString);
+    const componentAbsPath = createFile(relativePath, componentName, extension, componentAsString);
+    logger.info(`Component created at: ${componentAbsPath}`);
   } catch (e) {
-    logger.error(e.message);
+    logger.error(`Failed to create component: ${e.message}`);
   }
 };

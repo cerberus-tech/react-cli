@@ -2,4 +2,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "jest.showCoverageOnLoad": true,
+  "files.autoSave": "afterDelay"
 }
