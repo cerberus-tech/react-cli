@@ -4,3 +4,10 @@ tsconfig.json
 yarn-error.log
 .vscode
 coverage
+.eslintrc.js
+.prettierrc.js
+.travis.yml
+jest.config.ts
+tsconfig.json
+yarn-error.log
+yarn.lock
