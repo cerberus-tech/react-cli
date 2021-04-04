@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import * as yargs from 'yargs';
 import { createComponent } from './createComponent';
+import { createComponentStoryFile } from './createComponentStoryFile';
 import { createComponentStyleSheet } from './createComponentStylesheet';
 import { createComponentTestFile } from './createComponentTestFile';
 
@@ -20,11 +21,12 @@ const { argv } = yargs
 
 const [command, subject, subjectInstanceName, relativePath] = argv._;
 
-if (command.toLocaleLowerCase() === 'g') {
-  if (subject.toLocaleLowerCase() === 'component') {
+if (command.toString().toLocaleLowerCase() === 'g') {
+  if (subject.toString().toLocaleLowerCase() === 'component') {
     const basePath = `src/${relativePath || ''}`; // TODO: make this configurable
-    createComponent(subjectInstanceName, basePath);
-    createComponentTestFile(basePath, subjectInstanceName, 'test.tsx'); // TODO: consistent arg order, configurable extension
-    createComponentStyleSheet(subjectInstanceName, basePath);
+    createComponent(subjectInstanceName.toString(), basePath);
+    createComponentTestFile(basePath, subjectInstanceName.toString(), 'test.tsx'); // TODO: consistent arg order, configurable extension
+    createComponentStyleSheet(subjectInstanceName.toString(), basePath);
+    createComponentStoryFile(basePath, subjectInstanceName.toString());
   }
 }

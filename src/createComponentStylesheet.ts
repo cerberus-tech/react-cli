@@ -5,7 +5,7 @@ import { directoryAbsolutePath } from './utils/getPath';
 import { pascalToDashCase } from './utils/pascalToDashCase';
 
 export const createComponentStyleSheet = (componentName: string, relPath: string): void => {
-  const extension = 'scss'; // TODO: make this configurable
+  const extension = 'module.scss'; // TODO: make this configurable
   const fileName = `${componentName}.${extension}`;
   const dirPath = directoryAbsolutePath(relPath);
   const filePath = join(dirPath, fileName);
