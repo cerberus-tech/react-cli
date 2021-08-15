@@ -1,15 +1,14 @@
 import dedent from 'dedent';
 import { createComponentFile } from './createComponentFile';
-import { pascalToDashCase } from './utils/pascalToDashCase';
-import { styleSheetExtension } from './utils/stylesheetExtension';
+import { className } from './utils/className';
+import { styleSheetImport } from './utils/styleSheetImport';
 
 export const createComponent = (componentName: string, relativePath: string): void => {
-  let className = '`${stylus[';
-  className += `'${pascalToDashCase(componentName)}'`;
-  className += "]}${className ? ` ${className}` : ''}`";
+  const customClass = "${className ? className : ''}";
   const componentAsString = dedent`
   import React from 'react';
-  import stylus from './${componentName}${styleSheetExtension()}';
+  import classnames from 'classnames';
+  ${styleSheetImport(componentName)};
 
   export interface I${componentName}Props {
     className?: string;
@@ -17,7 +16,7 @@ export const createComponent = (componentName: string, relativePath: string): vo
 
   export const ${componentName}: React.FC<I${componentName}Props> = ({ className }: I${componentName}Props) => {
     return (
-      <div className={${className}}>
+      <div className={classnames(${className(componentName)}, ${customClass})}>
         <span>${componentName}</span>
       </div>
     )
