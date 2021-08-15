@@ -1,6 +1,6 @@
 {
   "name": "@cerberustech/react-cli",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "CLI tool for React component creation",
   "main": "index.js",
   "preferGlobal": true,
