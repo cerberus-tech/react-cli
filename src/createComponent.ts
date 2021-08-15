@@ -1,6 +1,7 @@
 import dedent from 'dedent';
 import { createComponentFile } from './createComponentFile';
 import { pascalToDashCase } from './utils/pascalToDashCase';
+import { styleSheetExtension } from './utils/stylesheetExtension';
 
 export const createComponent = (componentName: string, relativePath: string): void => {
   let className = '`${stylus[';
@@ -8,7 +9,7 @@ export const createComponent = (componentName: string, relativePath: string): vo
   className += "]}${className ? ` ${className}` : ''}`";
   const componentAsString = dedent`
   import React from 'react';
-  import stylus from './${componentName}.module.scss';
+  import stylus from './${componentName}${styleSheetExtension()}';
 
   export interface I${componentName}Props {
     className?: string;

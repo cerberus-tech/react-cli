@@ -3,9 +3,10 @@ import * as fs from 'fs';
 import { join } from 'path';
 import { directoryAbsolutePath } from './utils/getPath';
 import { pascalToDashCase } from './utils/pascalToDashCase';
+import { styleSheetExtension } from './utils/stylesheetExtension';
 
 export const createComponentStyleSheet = (componentName: string, relPath: string): void => {
-  const extension = 'module.scss'; // TODO: make this configurable
+  const extension = styleSheetExtension(); // TODO: make this configurable
   const fileName = `${componentName}.${extension}`;
   const dirPath = directoryAbsolutePath(relPath);
   const filePath = join(dirPath, fileName);

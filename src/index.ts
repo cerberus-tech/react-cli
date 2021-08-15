@@ -4,6 +4,10 @@ import { createComponent } from './createComponent';
 import { createComponentStoryFile } from './createComponentStoryFile';
 import { createComponentStyleSheet } from './createComponentStylesheet';
 import { createComponentTestFile } from './createComponentTestFile';
+import config from 'config';
+import { IEnvironmentConfig } from './config';
+
+const envConfig = config.get<IEnvironmentConfig>('environment');
 
 const { argv } = yargs
   .scriptName('react-cli')
@@ -23,7 +27,7 @@ const [command, subject, subjectInstanceName, relativePath] = argv._;
 
 if (command.toString().toLocaleLowerCase() === 'g') {
   if (subject.toString().toLocaleLowerCase() === 'component') {
-    const basePath = `src/${relativePath || ''}`; // TODO: make this configurable
+    const basePath = `src/${relativePath || envConfig.basePath || ''}`; // TODO: make this configurable
     createComponent(subjectInstanceName.toString(), basePath);
     createComponentTestFile(basePath, subjectInstanceName.toString(), 'test.tsx'); // TODO: consistent arg order, configurable extension
     createComponentStyleSheet(subjectInstanceName.toString(), basePath);
