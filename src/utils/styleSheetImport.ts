@@ -7,4 +7,4 @@ export const styleSheetImport = (
   componentName: string,
   config = stylesConfig,
   getStyleSheetExtension = styleSheetExtension,
-): string => `import ${config?.modules === true ? 'stylus from' : ' '} '${componentName}${getStyleSheetExtension()}'`;
+): string => `import ${config?.modules === true ? 'stylus from ' : ''}'${componentName}${getStyleSheetExtension()}'`;
