@@ -7,5 +7,5 @@ export const className = (componentName: string, config = stylesConfig): string 
   `${
     config?.modules === true
       ? ` stylus[' + ${pascalToDashCase(componentName)} + ']`
-      : ` '${pascalToDashCase(componentName)}'`
+      : `'${pascalToDashCase(componentName)}'`
   }`;
